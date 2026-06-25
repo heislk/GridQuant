@@ -1,3 +1,7 @@
+# NOTE: For the live 2026 World Championship forecast (with upgrade
+# modelling), use the dedicated predictor: `python run_2026_prediction.py`.
+# This legacy pipeline runs historical analysis on local parquet data and is
+# now year-aware (target season derived from the data rather than fixed 2024).
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -84,10 +88,11 @@ def main():
     try:
         # Filter for active 2024 drivers using V2 (Points-based Car Strength)
         from metrics.championship import create_driver_profiles_v2
-        profiles = create_driver_profiles_v2(war_df, results_df, target_year=2024)
+        champ_year = int(results_df['Year'].max()) if not results_df.empty else int(laps_df['Year'].max())
+        profiles = create_driver_profiles_v2(war_df, results_df, target_year=champ_year)
         
         if profiles:
-            champ_sim = ChampionshipSimulator(profiles, n_sims=10000)
+            champ_sim = ChampionshipSimulator(profiles, n_sims=10000, calendar_length=24)
             champ_results = champ_sim.simulate()
             champ_path = os.path.join(dirs['championship'], 'season_simulation.csv')
             champ_results.to_csv(champ_path, index=False)
@@ -97,7 +102,7 @@ def main():
             plot_championship_probabilities(champ_results, os.path.join(dirs['championship'], 'championship_win_probs.png'))
             
         else:
-            print('  Skipping Championship Sim (No profiles for 2024).')
+            print('  Skipping Championship Sim (no profiles for target season).')
     except Exception as e:
         print(f'  Error in Championship Sim: {e}')
 

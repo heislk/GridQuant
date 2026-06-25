@@ -1,0 +1,12 @@
+team,slope_s_per_round,gap_season_s,gap_start_s,gap_recent_s,gap_delta_s,trend,projected_gap_s
+Ferrari,-0.1119,0.256,0.448,0.0,-0.448,Strongly improving,0.0
+Mercedes,0.005,0.069,0.0,0.015,0.015,Flat,0.02
+Red Bull Racing,-0.172,1.111,1.462,0.583,-0.879,Strongly improving,0.411
+McLaren,0.1798,0.646,0.367,1.145,0.778,Regressing,1.324
+Alpine,0.0394,1.716,1.458,1.841,0.383,Slipping,1.88
+Racing Bulls,0.0523,1.887,1.755,1.946,0.19,Slipping,1.998
+Audi,0.1151,2.374,1.702,1.905,0.203,Regressing,2.02
+Haas F1 Team,0.0741,2.07,1.867,1.963,0.095,Slipping,2.037
+Williams,0.0321,2.197,2.328,2.137,-0.192,Slipping,2.169
+Cadillac,-0.0434,3.806,3.683,3.374,-0.31,Improving,3.33
+Aston Martin,-0.0405,3.999,4.667,4.516,-0.151,Improving,4.476

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Generated media (regenerate from predict2026/viz). Keep it out of the repo.
+media/
+*.mp4
+*.mov
+*.webm
+
+# Generated forecast outputs
+results/predictions/*.html
+results/predictions/*.mp4
+results/predictions/*.png
+
+# Cached API pulls and exported sim data (large, regenerable)
+predict2026/cache_snapshot/
+predict2026/data/
+predict2026/cache/
+
+# Render scratch
+**/frames/
+**/frames_*/
+
+# Deprecated stubs left in place (sandbox could not delete them)
+predict2026/animate.py
+predict2026/render_frames.py
+
+# OS
+.DS_Store
